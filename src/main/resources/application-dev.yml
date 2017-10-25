@@ -1,5 +1,7 @@
 ddy:
    name: ddy
+   appID: wxd5db089fcb11393f
+   appsecret: 9a7dbdbaa4f1363a3b4c6852f4b57176
    swagger:
       basePackage: com.ddy.wxServer
       version: 0.2
