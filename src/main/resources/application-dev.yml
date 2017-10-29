@@ -7,7 +7,7 @@ ddy:
       version: 0.2
 
 Server:
-  port: 9070
+  port: 80
 
 spring:
   datasource:

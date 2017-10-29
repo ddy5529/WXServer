@@ -29,11 +29,9 @@ public class WeiXinController {
         list.add(nonce);
         list.add(timestamp);
         list.add(token);
-
         Collections.sort(list);
-
-
         System.out.println(DigestUtils.shaHex(list.get(0)+list.get(1)+list.get(2)));
-        return "hello,word";
+        return echostr;
     }
+
 }
