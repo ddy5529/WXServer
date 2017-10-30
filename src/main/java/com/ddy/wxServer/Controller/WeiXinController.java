@@ -2,13 +2,9 @@ package com.ddy.wxServer.Controller;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 @RestController
 @RequestMapping("/wx")
@@ -32,6 +28,11 @@ public class WeiXinController {
         Collections.sort(list);
         System.out.println(DigestUtils.shaHex(list.get(0)+list.get(1)+list.get(2)));
         return echostr;
+    }
+    @PostMapping("/click")
+    public String shouMenuButtonAndControl(){
+
+        return null;
     }
 
 }

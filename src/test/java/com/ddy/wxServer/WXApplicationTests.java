@@ -1,6 +1,7 @@
 package com.ddy.wxServer;
 
 import com.ddy.wxServer.Utils.WeiXinInterface.GetWeiXinInterface;
+import com.ddy.wxServer.Utils.WeiXinInterface.WeiXInMenuView;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
@@ -35,7 +36,7 @@ public class WXApplicationTests {
     @Test
     public void getHello() throws Exception {
         /*
-		* 在这个方法体内是比较拦截下的‘/say2’请求返回的内容是否是"Hello World"
+        * 在这个方法体内是比较拦截下的‘/say2’请求返回的内容是否是"Hello World"
 		* */
 //		mvc.perform(MockMvcRequestBuilders.get("/say2").accept(MediaType.APPLICATION_JSON))
 //				.andExpect(status().isOk())
@@ -53,21 +54,28 @@ public class WXApplicationTests {
     }
 
     @Test
-    public void testWXIPAddress(){
+    public void testWXIPAddress() {
         GetWeiXinInterface gat = new GetWeiXinInterface();
-        System.out.println("获取到的Token值为：" + gat.getWeiXinServerIPAddress());
+        System.out.println("获取到的微信IP地址为：" + gat.getWeiXinServerIPAddress());
     }
+
     //以下为微信的可用地址的ip的格式，jsonobject->map->list
-//    @Test
-    public void testListToString(){
-        List<String> list=new ArrayList<>();
+    @Test
+    public void testListToString() {
+        List<String> list = new ArrayList<>();
         list.add("101.226.62.83");
         list.add("101.226.62.82");
         list.add("101.226.62.84");
         list.add("101.226.62.85/27");
-        Map map=new HashMap();
-        map.put("ip_list",list);
-        JSONObject jsonObject=new JSONObject(map);
-        System.out.println("测试出的List在JSON中的值为："+jsonObject.toString());
+        Map map = new HashMap();
+        map.put("ip_list", list);
+        JSONObject jsonObject = new JSONObject(map);
+        System.out.println("测试出的List在JSON中的值为：" + jsonObject.toString());
+    }
+
+    @Test
+    public void testWeiXinMenuViewFormat() throws JSONException {
+//        System.out.println("测试出的微信菜单的JSON串是"+ WeiXInMenuView.getMenuView());
+        System.out.println("测试出的微信菜单的JSON串是" + WeiXInMenuView.getCreateMenuOnJSONString());
     }
 }
