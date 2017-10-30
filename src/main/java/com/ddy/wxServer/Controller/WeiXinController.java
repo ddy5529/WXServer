@@ -1,5 +1,6 @@
 package com.ddy.wxServer.Controller;
 
+import com.ddy.wxServer.Utils.WeiXinInterface.WeiXInLoginVerify;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -17,22 +18,34 @@ public class WeiXinController {
     private String appsecret;
     //发送请求，获取token值
 //https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxd5db089fcb11393f&secret=9a7dbdbaa4f1363a3b4c6852f4b57176
-    @GetMapping()
-    public String getMessage(@PathVariable String signature,@PathVariable String timestamp,@PathVariable String nonce,@PathVariable String echostr){
-        System.out.println("发送的请求：");
-        String token="DVRHMk__qgIrdGLrzSjEIk-1ZuojcNIG4gfmVwA_qRZRCD_Tm1rXWMNRzMWVr7ObnN7tzGHSm1fMPJX1hLQJAKcuP5D_t40Fvut2f1xyBr5IBHHHLRJ8dcoJhrDZeFw2TYIfAGAEJT";
-        ArrayList<String> list=new ArrayList<String>();
-        list.add(nonce);
-        list.add(timestamp);
-        list.add(token);
-        Collections.sort(list);
-        System.out.println(DigestUtils.shaHex(list.get(0)+list.get(1)+list.get(2)));
-        return echostr;
-    }
+//    @GetMapping()
+//    public String getMessage(@PathVariable String signature,@PathVariable String timestamp,@PathVariable String nonce,@PathVariable String echostr){
+//        System.out.println("发送的请求：");
+//        String token="DVRHMk__qgIrdGLrzSjEIk-1ZuojcNIG4gfmVwA_qRZRCD_Tm1rXWMNRzMWVr7ObnN7tzGHSm1fMPJX1hLQJAKcuP5D_t40Fvut2f1xyBr5IBHHHLRJ8dcoJhrDZeFw2TYIfAGAEJT";
+//        ArrayList<String> list=new ArrayList<String>();
+//        list.add(nonce);
+//        list.add(timestamp);
+//        list.add(token);
+//        Collections.sort(list);
+//        System.out.println(DigestUtils.shaHex(list.get(0)+list.get(1)+list.get(2)));
+//        return echostr;
+//    }
     @PostMapping("/click")
     public String shouMenuButtonAndControl(){
 
         return null;
     }
 
+    //验证是否来自微信服务器的消息
+    @RequestMapping(value = "",method = RequestMethod.GET)
+    public String checkSignature(@RequestParam(name = "signature" ,required = false) String signature  ,
+                                 @RequestParam(name = "nonce",required = false) String  nonce ,
+                                 @RequestParam(name = "timestamp",required = false) String  timestamp ,
+                                 @RequestParam(name = "echostr",required = false) String  echostr){
+        if (WeiXInLoginVerify.LoginVerify(signature,  timestamp,  nonce,  echostr)) {
+            return echostr;
+        }
+
+        return "error";
+    }
 }

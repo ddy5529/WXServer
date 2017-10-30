@@ -10,9 +10,9 @@ import org.springframework.web.client.RestTemplate;
 
 public class GetWeiXinInterface {
     @Value("${ddy.appID}")
-    private String appID;
+    static private String appID;
     @Value("${ddy.appsecret}")
-    private String appsecret;
+    static private String appsecret;
 
     public String POSTToken() {
         RestTemplate restTemplate = new RestTemplate();
@@ -30,7 +30,7 @@ String.class 是可以修改的，例如User.class，这样你就可以有 User 
         return null;
     }
 
-    public String GetToken()  {
+    static public String GetToken()  {
         appID="wxd5db089fcb11393f";
         appsecret="9a7dbdbaa4f1363a3b4c6852f4b57176";
         String token;
