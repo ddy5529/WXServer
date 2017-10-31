@@ -1,12 +1,15 @@
 package com.ddy.wxServer.Controller;
 
 import com.ddy.wxServer.Server.VerifyServer;
+import com.ddy.wxServer.Server.WXInputInfoServer;
+import org.apache.http.HttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 
 
 @RestController
@@ -24,6 +27,8 @@ public class WeiXinController {
     @Autowired
     private VerifyServer verifyServer;
 
+    @Autowired
+    private WXInputInfoServer wxInputInfoServer;
     @PostMapping("/click")
     public String shouMenuButtonAndControl() {
 
@@ -41,4 +46,8 @@ public class WeiXinController {
         return verifyServer.LoginVerify(signature, timestamp, nonce, echostr);
     }
 
+    @PostMapping("")
+    public String processPostData(HttpServletRequest httpRequest){
+        return wxInputInfoServer.processRequest(httpRequest);
+    }
 }
