@@ -1,6 +1,6 @@
 package com.ddy.wxServer.Utils.WeiXinAuthorityUtils;
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -9,11 +9,11 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+//import org.junit.After;
+//import org.junit.AfterClass;
+//import org.junit.Before;
+//import org.junit.BeforeClass;
+//import org.junit.Test;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -21,6 +21,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 public class WXBizMsgCryptTest {
+	/*
 	String encodingAesKey = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG";
 	String token = "pamtest";
 	String timestamp = "1409304348";
@@ -149,4 +150,5 @@ public class WXBizMsgCryptTest {
 		wxcpt.verifyUrl(verifyMsgSig, timeStamp, nonce, echoStr);
 		// 只要不抛出异常就好
 	}
+	*/
 }
