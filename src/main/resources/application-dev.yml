@@ -17,6 +17,13 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
   freemarker:
     prefer-file-system-access: false
+#  mvc:
+#    static-path-pattern: /templates/**
+#  thymeleaf:
+              #   # 禁止浏览器缓存
+              #  cache: false
+              #  mode: HTML5
+
 
 mybatis:
   mapper-locations: classpath*:mybatis/mapper/*.xml

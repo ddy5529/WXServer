@@ -1,7 +1,6 @@
 package com.ddy.wxServer;
 
-import com.ddy.wxServer.Utils.WeiXinInterface.GetWeiXinInterface;
-import com.ddy.wxServer.Utils.WeiXinInterface.WeiXInMenuView;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Before;
