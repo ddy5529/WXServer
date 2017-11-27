@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+</head>
+<body>
+<div id="result-page">
+
+    <mt-header title="本期投票结果">
+        <router-link to="/" slot="left">
+            <mt-button icon="back" @click="handleBack">返回</mt-button>
+        </router-link>
+        <mt-button icon="more" slot="right" @click="handleMore"></mt-button>
+    </mt-header>
+
+
+
+</div>
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+
+    new Vue({
+        el: '#result-page',
+        data: {
+            multitermValue: []
+        },
+        methods: {
+            handleBack: function() {
+                this.$toast('返回!')
+            },
+            handleMore: function () {
+                this.$toast('更多操作')
+            }
+        }
+    })
+
+</script>
+</html>

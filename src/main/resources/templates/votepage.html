@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+</head>
+<body>
+<div id="app">
+    
+    <mt-header title="专项资金项目实施部的内部投票会">
+        <router-link to="/" slot="left">
+            <mt-button icon="back" @click="handleClose">关闭</mt-button>
+        </router-link>
+        <mt-button icon="more" slot="right" @click="handleMore"></mt-button>
+    </mt-header>
+    <mt-checklist
+            align="right"
+            :max="2"
+            :options="options"
+            title="请选择你喜欢的题目"
+            v-model="multitermValue">
+    </mt-checklist>
+    <p><span >您选择的是：</span>{{multitermValue}}</p>
+    <mt-button @click.native="clickSubmit">提交</mt-button><mt-button @click.native="handleClick">提示</mt-button>
+
+</div>
+</body>
+<!-- 先引入 Vue -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<script>
+    
+    new Vue({
+        el: '#app',
+        data: {
+            multitermValue: [],
+            options: [
+                {
+                    label: '《MySQL和Oracle的区别》',
+                    value: '叶雯'
+                },
+                {
+                    label: '《前后端分离》',
+                    value: '叶星源'
+                },
+                {
+                    label: '《JQuery组件的使用》',
+                    value: '莫秀杰'
+                },
+                {
+                    label: '《Redis的应用》',
+                    value: '李志敏'
+                }
+            ]
+        },
+        methods: {
+            handleClick: function() {
+                this.$toast('这是项目组里的一次阶段性的试验!')
+            },
+            clickSubmit: function () {
+                this.$toast('提交中!')
+            },
+            handleClose: function () {
+                this.$toast('关闭中')
+            },
+            handleMore: function () {
+                this.$toast('更多操作')
+            }
+        }
+    })
+
+</script>
+</html>

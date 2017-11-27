@@ -10,8 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("")
@@ -35,7 +38,7 @@ public class CoreController {
 //            Model mode;
 //            Person person=new Person();
 //            mode.addAllAttributes("person",person);
-            return "/index";
+            return "index";
         } else {
             if (SignUtil.checkSignature(signature, timestamp, nonce)) {
                 log.info("接入成功");
@@ -52,6 +55,16 @@ public class CoreController {
         String respMessage = coreService.processRequest(req);
         return respMessage;
     }
-//    @GetMapping()
-//    public String
+
+    @GetMapping("/getMode")
+    public ModelAndView getModelAndView(Model model){
+//        ModelAndView modelAndView=new ModelAndView("index");
+        ModelAndView modelAndView=new ModelAndView("votepage");
+        Map<String,Object> map = new HashMap<>();
+        map.put("hello","hello,word");
+        modelAndView.addAllObjects(map);
+        model.addAttribute("Author","叶星源");
+        return modelAndView;
+    }
+
 }
