@@ -25,8 +25,16 @@
 <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script>
-
-    new Vue({
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/user/:userId',
+                name: 'user',
+                component: User
+            }
+        ]
+    });
+    var vue= new Vue({
         el: '#result-page',
         data: {
             multitermValue: []
@@ -39,7 +47,7 @@
                 this.$toast('更多操作')
             }
         }
-    })
+    });
 
 </script>
 </html>

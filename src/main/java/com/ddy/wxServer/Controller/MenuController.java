@@ -125,8 +125,8 @@ public class MenuController {
         Menu menu21=new Menu();
         menu21.setId("1201");
         menu21.setName("专项资金项目实施部");//第二栏的第一个
-        menu21.setType("click");
-        menu21.setKey("menu_secret_vote_eGrant");
+        menu21.setType("view");
+        menu21.setUrl("https://12/ddy5529");
 
         Menu menu3=new Menu();
         menu3.setId("1300");

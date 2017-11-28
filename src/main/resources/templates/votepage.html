@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="app">
-    
+
     <mt-header title="专项资金项目实施部的内部投票会">
         <router-link to="/" slot="left">
             <mt-button icon="back" @click="handleClose">关闭</mt-button>
@@ -18,21 +18,30 @@
             align="right"
             :max="2"
             :options="options"
-            title="请选择你喜欢的题目"
+            title="请选择你喜欢的题目(最多两个)"
             v-model="multitermValue">
     </mt-checklist>
-    <p><span >您选择的是：</span>{{multitermValue}}</p>
-    <mt-button @click.native="clickSubmit">提交</mt-button><mt-button @click.native="handleClick">提示</mt-button>
+    <p><span>您选择的是：</span>{{multitermValue}}</p>
+    <mt-button @click.native="clickSubmit">提交</mt-button>
+    <mt-button @click.native="handleClick">提示</mt-button>
 
 </div>
 </body>
-<!-- 先引入 Vue -->
+<!-- 引入 Vue -->
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
-<!-- 引入组件库 -->
 <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script>
-    
-    new Vue({
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/user/:userId',
+                name: 'user',
+                component: User
+            }
+        ]
+    });
+    var vueapp = new Vue({
         el: '#app',
         data: {
             multitermValue: [],
@@ -56,11 +65,12 @@
             ]
         },
         methods: {
-            handleClick: function() {
+            handleClick: function () {
                 this.$toast('这是项目组里的一次阶段性的试验!')
             },
             clickSubmit: function () {
                 this.$toast('提交中!')
+                router.push({ name: 'user', params: { userId: 123 }})
             },
             handleClose: function () {
                 this.$toast('关闭中')
