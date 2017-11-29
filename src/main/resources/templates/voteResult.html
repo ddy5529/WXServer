@@ -24,16 +24,7 @@
 <!-- 引入组件库 -->
 <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-<script>
-    const router = new VueRouter({
-        routes: [
-            {
-                path: '/user/:userId',
-                name: 'user',
-                component: User
-            }
-        ]
-    });
+<script>   
     var vue= new Vue({
         el: '#result-page',
         data: {
@@ -42,6 +33,7 @@
         methods: {
             handleBack: function() {
                 this.$toast('返回!')
+                window.location.href="votepage.html"
             },
             handleMore: function () {
                 this.$toast('更多操作')
