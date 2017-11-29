@@ -32,15 +32,7 @@
 <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script>
-    const router = new VueRouter({
-        routes: [
-            {
-                path: '/user/:userId',
-                name: 'user',
-                component: User
-            }
-        ]
-    });
+    
     var vueapp = new Vue({
         el: '#app',
         data: {
@@ -70,6 +62,7 @@
             },
             clickSubmit: function () {
                 this.$toast('提交中!')
+                window.location.href="voteResult.html"
                 router.push({ name: 'user', params: { userId: 123 }})
             },
             handleClose: function () {
