@@ -126,7 +126,7 @@ public class MenuController {
         menu21.setId("1201");
         menu21.setName("专项资金项目实施部");//第二栏的第一个
         menu21.setType("view");
-        menu21.setUrl("https://12/ddy5529");
+        menu21.setUrl("http://uerrgz.natappfree.cc/getMode");
 
         Menu menu3=new Menu();
         menu3.setId("1300");
@@ -170,7 +170,7 @@ public class MenuController {
         menuMap11.put("key",menu11.getKey());
         subMenuMapList1.add(menuMap11);
 
-        //第二栏第二个
+        //第二栏第一个
         menuMap12.put("name",menu12.getName());
         menuMap12.put("type",menu12.getType());
         menuMap12.put("key",menu12.getKey());
@@ -187,7 +187,8 @@ public class MenuController {
         //第二栏第一个
         menuMap21.put("name",menu21.getName());
         menuMap21.put("type",menu21.getType());
-        menuMap21.put("key",menu21.getKey());
+        menuMap21.put("url",menu21.getUrl());
+//        menuMap21.put("key",menu21.getKey());
         subMenuMapList2.add(menuMap21);
 
         menuMap2.put("name",menu2.getName());

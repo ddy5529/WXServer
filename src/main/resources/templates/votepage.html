@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <!-- 引入样式 -->
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
     <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
 </head>
 <body>
@@ -32,7 +31,6 @@
 <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 <script>
-    
     var vueapp = new Vue({
         el: '#app',
         data: {
@@ -62,8 +60,8 @@
             },
             clickSubmit: function () {
                 this.$toast('提交中!')
-                window.location.href="voteResult.html"
-                router.push({ name: 'user', params: { userId: 123 }})
+                window.location.href="/gettotal?"
+           //     router.push({ name: 'user', params: { userId: 123 }})
             },
             handleClose: function () {
                 this.$toast('关闭中')

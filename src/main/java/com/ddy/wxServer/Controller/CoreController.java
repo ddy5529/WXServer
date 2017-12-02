@@ -56,15 +56,6 @@ public class CoreController {
         return respMessage;
     }
 
-    @GetMapping("/getMode")
-    public ModelAndView getModelAndView(Model model){
-//        ModelAndView modelAndView=new ModelAndView("index");
-        ModelAndView modelAndView=new ModelAndView("votepage");
-        Map<String,Object> map = new HashMap<>();
-        map.put("hello","hello,word");
-        modelAndView.addAllObjects(map);
-        model.addAttribute("Author","叶星源");
-        return modelAndView;
-    }
+
 
 }
