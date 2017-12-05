@@ -31,7 +31,6 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
-
     private static Logger log = LoggerFactory.getLogger(MenuController.class);
 
     //查询全部菜单
