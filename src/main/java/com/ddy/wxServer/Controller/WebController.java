@@ -1,31 +1,37 @@
 package com.ddy.wxServer.Controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.HashMap;
-import java.util.Map;
 
-@RestController
+@Controller
 public class WebController {
+
+    private static Logger log = LoggerFactory.getLogger(CoreController.class);
+
     @GetMapping("/getMode")
-    public ModelAndView getModelAndView(Model model){
-//        ModelAndView modelAndView=new ModelAndView("index");
-        ModelAndView modelAndView=new ModelAndView("votepage");
-        Map<String,Object> map = new HashMap<>();
-        map.put("hello","hello,word");
-        modelAndView.addAllObjects(map);
-        model.addAttribute("Author","叶星源");
-        return modelAndView;
+    public String getModelAndView(Model model){
+        model.addAttribute("Author","ddy");
+        return "votepage";
     }
     @GetMapping("/gettotal")
-    public ModelAndView getTotalModelAndView(String choessname){
-        ModelAndView modelAndView=new ModelAndView("voteResult");
-//        model.addAttribute("choose","叶星源");
-        String cn[]=choessname.split(",");
+    public String getTotalModelAndView(@RequestParam(name = "choessname", required = false) String choessname,Model model){
+        model.addAttribute("choose","ddy");
+        log.info("开始拆分前的值"+choessname);
+        if (choessname!=null&&!"".equals(choessname)) {
+            String cn[] = choessname.split(",");
+            log.info("拆分结束后的值"+cn.toString());
+        }
 
-        return modelAndView;
+        return "voteResult";
+    }
+    @GetMapping("/get/index")
+    public String gotoName(Model model){
+        model.addAttribute("myname","ddy");
+        return "index";
     }
 }
