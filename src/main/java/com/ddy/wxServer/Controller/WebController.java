@@ -18,8 +18,7 @@ public class WebController {
     @Autowired
     VoteService voteService;
     @GetMapping("/getMode")
-    public String getModelAndView(Model model){
-        model.addAttribute("Author","ddy");
+    public String getModelAndView(){
         return "votepage";
     }
     @GetMapping("/gettotal")
