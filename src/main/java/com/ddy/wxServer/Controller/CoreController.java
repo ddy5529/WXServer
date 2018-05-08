@@ -32,7 +32,7 @@ public class CoreController {
     //增加日志
     private static Logger log = LoggerFactory.getLogger(CoreController.class);
 
-    //验证是否来自微信服务器的消息
+    //验证是否来自微信服务器的消息,通过签名，临时签名，时间戳，响应文字
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String checkSignature(@RequestParam(name = "signature", required = false) String signature,
                                  @RequestParam(name = "nonce", required = false) String nonce,
