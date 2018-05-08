@@ -3,27 +3,30 @@
     <meta content="text/html;charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
     <title>Vue投票网页</title>
+    <link rel="shortcut icon" href="/static/image/sxicon.jpg">
     <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
     <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
 </head>
-<body>
-<div id="header"><p th:text="'Hello, ' + ${myname} + '!'" /></div>
-<div id="app">
-    <p>{{ message }}</p>
-    <ol>
-        <li v-for="site in sites">
-            {{ site.name }}
-        </li>
-    </ol>
+<body >
+<div style="text-align: center;">
+    <div id="header">
+    <p th:text="'Hello, ' + ${myname} + '!'"/></div>
+    <div id="app">
+        <p>{{ message }}</p>
+        <ol>
+            <li v-for="site in sites">
+                {{ site.name }}
+            </li>
+        </ol>
 
-    <a href="https://home.console.aliyun.com/new#/">阿里云控制台</a><br/>
-    <a href="http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index">微信公众号调试接口</a><br/>
-    <a href="http://www.5442.com/showpic.html?http://pic.ytqmx.com:82/2013/0619/12/09.jpg">刺客信条的图片</a><br/>
-    <button v-on:click="counter += 1">增加 1</button>
-    <p>这个按钮被点击了 {{ counter }} 次。</p>
-    <button v-on:click="submitform">提交</button>
+        <a href="https://home.console.aliyun.com/new#/">阿里云控制台</a><br/>
+        <a href="http://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index">微信公众号调试接口</a><br/>
+        <a href="http://www.5442.com/showpic.html?http://pic.ytqmx.com:82/2013/0619/12/09.jpg">刺客信条的图片</a><br/>
+        <button v-on:click="counter += 1">增加 1</button>
+        <p>这个按钮被点击了 {{ counter }} 次。</p>
+        <button v-on:click="submitform">提交</button>
 
+    </div>
 </div>
 <script>
     var app =new Vue({
@@ -40,7 +43,11 @@
         methods: {
             submitform: function (event) {
                 // `this` 在方法里指当前 Vue 实例
-                alert('Hello ' + this.name + '!')
+                //alert('Hello ' + this.name + '!')
+                //可以在这里进行重定向到VUE所在的项目
+                //window.location.assign("http://xkddy.xyz")
+                window.location.assign("https://www.csdn.net/")
+
                 // `event` 是原生 DOM 事件
                 if (event) {
                     alert(event.target.tagName)

@@ -17,42 +17,22 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
   freemarker:
     prefer-file-system-access: false
-  jpa:
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: update
-
   thymeleaf:
-# 禁止浏览器缓存
-   cache: false
-   check-template-location: true
-   encoding: UTF-8
-   mode: HTML5
-   content-type: text/html
-   enabled: true
-   suffix: .html
+    cache: false
+    check-template-location: true
+    encoding: UTF-8
+    mode: LEGACYHTML5
+    content-type: text/html
+    enabled: true
+    suffix: .html
 
 StandardTemplateModeHandlers:
   spring:
     thymeleaf:
       prefix: classpath:/templates/
 
-#<!-- 关闭thymeleaf缓存 -->
-#spring.thymeleaf.cache=false
-#spring.thymeleaf.check-template-location=true # Check that the templates location exists.
-#spring.thymeleaf.content-type=text/html # Content-Type value.
-#spring.thymeleaf.enabled=true # Enable MVC Thymeleaf view resolution.
-#spring.thymeleaf.encoding=UTF-8 # Template encoding.
-#spring.thymeleaf.excluded-view-names= # Comma-separated list of view names that should be excluded from resolution.
-#spring.thymeleaf.mode=HTML5 # Template mode to be applied to templates. See also StandardTemplateModeHandlers.
-#spring.thymeleaf.prefix=classpath:/templates/ # Prefix that gets prepended to view names when building a URL.
-#spring.thymeleaf.suffix=.html # Suffix that gets appended to view names when building a URL.
-#spring.thymeleaf.template-resolver-order= # Order of the template resolver in the chain.
-#spring.thymeleaf.view-names= # Comma-separated list of view names that can be resolved.
-
-mybatis:
-  mapper-locations: classpath*:mybatis/mapper/*.xml
+#mybatis:
+#  mapper-locations: classpath*:mybatis/mapper/*.xml
 
 logging:
   file: logs/system.log

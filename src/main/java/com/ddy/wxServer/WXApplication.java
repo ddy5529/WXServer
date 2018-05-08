@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 //@EnableTransactionManagement  //开启事务管理
-@SpringBootApplication
+@SpringBootApplication//(scanBasePackages={"com.ddy.wxServer.Dao"})
 @EnableScheduling // 这里，启用定时任务
 public class WXApplication {
 	public static void main(String[] args) {

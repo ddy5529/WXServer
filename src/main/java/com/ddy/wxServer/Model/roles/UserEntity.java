@@ -84,4 +84,16 @@ public class UserEntity {
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "user_id=" + user_id +
+                ", user_sex='" + user_sex + '\'' +
+                ", role_name='" + role_name + '\'' +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", userPhone='" + userPhone + '\'' +
+                '}';
+    }
 }

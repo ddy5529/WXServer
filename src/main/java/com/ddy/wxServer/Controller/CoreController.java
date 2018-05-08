@@ -5,12 +5,26 @@ import com.ddy.wxServer.Utils.fastwebutils.SignUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 
-@RestController
-@RequestMapping("")
+/*
+*
+官方文档：
+@RestController is a stereotype annotation that combines @ResponseBody and @Controller.
+意思是：
+@RestController注解相当于@ResponseBody ＋ @Controller合在一起的作用。
+
+1)如果只是使用@RestController注解Controller，则Controller中的方法无法返回jsp页面，配置的视图解析器InternalResourceViewResolver不起作用，返回的内容就是Return 里的内容。
+例如：本来应该到success.jsp页面的，则其显示success.
+
+2)如果需要返回到指定页面，则需要用 @Controller配合视图解析器InternalResourceViewResolver才行。
+3)如果需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解。
+* */
+/*http://localhost/swagger-ui.html*/
+@Controller
 public class CoreController {
     @Autowired
     private CoreService coreService;
@@ -31,7 +45,7 @@ public class CoreController {
 //            Model mode;
 //            Person person=new Person();
 //            mode.addAllAttributes("person",person);
-            return "index";
+            return "mainpage";
         } else {
             if (SignUtil.checkSignature(signature, timestamp, nonce)) {
                 log.info("接入成功");

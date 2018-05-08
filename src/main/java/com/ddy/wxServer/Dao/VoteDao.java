@@ -1,14 +1,15 @@
 package com.ddy.wxServer.Dao;
 
-import com.ddy.wxServer.Model.roles.UserEntity;
 import com.ddy.wxServer.Model.roles.VoteResult;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 @Component
 @Mapper
 public interface VoteDao {
@@ -21,7 +22,7 @@ public interface VoteDao {
     @Select("SELECT * FROM votetable")
     List selectAll();
 
-    @Select("SELECT COUNT(0) FROM votetable WHERE ")
+    @Select("SELECT COUNT(0) FROM votetable")
     int countName();
 
 }

@@ -14,8 +14,10 @@ import java.util.Map;
 @Service
 public class VoteServiceImpl implements VoteService {
     private static Logger log= LoggerFactory.getLogger(VoteServiceImpl.class);
+
     @Autowired
     private VoteDao voteDao;
+
     @Override
     public void anonymityVoteroject(String project) {
         VoteResult voteResult=new VoteResult();
